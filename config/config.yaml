@@ -1,0 +1,20 @@
+version: 1.0.0
+
+kafka:
+  bootstrap-servers:
+    - localhost:9093
+    - localhost:9094
+    - localhost:9095
+  topic: emails
+  group-id: sumup-email-notifier-group-id
+  min-bytes: 200
+  retention-hours: 36
+  retry:
+    initial-interval: 1
+    max-interval: 20
+    multiplier-interval: 2
+    timeout: 40
+  recovery:
+    topic: emails.recovery
+    group-id: sumup-email-recovery
+    retention-hours: 36
